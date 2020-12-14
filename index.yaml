@@ -1,9 +1,19 @@
 apiVersion: v1
 entries:
+  apig-api-uportal:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-12-14T18:45:23.321495078+08:00"
+    description: A Helm chart for Kubernetes
+    digest: 0aedb502abb294886c32fc04bef607623a1bd11f5a9ae259d3bbd9ed1ada25a1
+    name: apig-api-uportal
+    urls:
+    - https://mattiaperi.github.io/helm-chart/apig-api-uportal-0.1.0.tgz
+    version: 0.1.0
   helm-chart-test:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-14T18:27:32.68764531+08:00"
+    created: "2020-12-14T18:45:23.322400375+08:00"
     description: A Helm chart for Kubernetes
     digest: 3aaa65cecbd92bfad7337bbc4caff0aea2d5808377f33be90e435c974e08b7d6
     name: helm-chart-test
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://mattiaperi.github.io/helm-chart/helm-chart-test-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-14T18:27:32.685373894+08:00"
+generated: "2020-12-14T18:45:23.319212907+08:00"
