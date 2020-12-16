@@ -3,12 +3,12 @@ entries:
   apig-api-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-16T10:43:13.164294713+08:00"
+    created: "2020-12-16T10:44:04.096102663+08:00"
     description: A Helm chart for Kubernetes
-    digest: 4fdaa3bb603c4bce70b079c3f47e5e9ca9185c312c0e74f967fe3a85cd905175
+    digest: 6eb14ee391054964cbba43ab253fcae46af43fb77b2f456256d941b5b9e11b86
     name: apig-api-uportal
     type: application
     urls:
     - https://zhaoyf23.github.io/helm-chart/apig-api-uportal-1.0.0.tgz
     version: 1.0.0
-generated: "2020-12-16T10:43:13.161997811+08:00"
+generated: "2020-12-16T10:44:04.094769136+08:00"
