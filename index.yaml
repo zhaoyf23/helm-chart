@@ -3,7 +3,7 @@ entries:
   apig-api-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T14:18:32.402029274+08:00"
+    created: "2020-12-18T14:19:48.753346304+08:00"
     description: A Helm chart for Kubernetes
     digest: a4e177ad916160c0082c4f98b49e65965e12366ba03bd42402184b2c65a1bf21
     name: apig-api-uportal
@@ -14,7 +14,7 @@ entries:
   global-config:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T14:18:32.402499714+08:00"
+    created: "2020-12-18T14:19:48.753811961+08:00"
     description: A Helm chart for Kubernetes
     digest: 6037f896c9ed75e13736f14de4fabee2890174a645ce771f795152161f2a2bcc
     name: global-config
@@ -22,4 +22,4 @@ entries:
     urls:
     - https://zhaoyf23.github.io/helm-chart/global-config-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-18T14:18:32.400419064+08:00"
+generated: "2020-12-18T14:19:48.751543653+08:00"
