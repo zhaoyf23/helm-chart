@@ -3,7 +3,7 @@ entries:
   apig-all-core:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.116705266+08:00"
+    created: "2020-12-18T16:27:16.284932555+08:00"
     description: A Helm chart for Kubernetes
     digest: b41a68dd9905e91009b20c4df6d443facc2cb8c2c73b95e948638924273baa73
     name: apig-all-core
@@ -14,7 +14,7 @@ entries:
   apig-api-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.117951454+08:00"
+    created: "2020-12-18T16:27:16.286007405+08:00"
     description: A Helm chart for Kubernetes
     digest: 44935cd032d9a15f7752110c6b6030a7f16a093e945876c9d132d221cf8be8fa
     name: apig-api-uportal
@@ -25,9 +25,9 @@ entries:
   apig-dcoos-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.118948259+08:00"
+    created: "2020-12-18T16:27:16.28722814+08:00"
     description: A Helm chart for Kubernetes
-    digest: ad81403ab4c6c26fcd452b02f0d5f640737ab6af70f6a73c2f30246bddfa1f34
+    digest: 80640d3e12fbfe2fec71a80953df951dcf0ab7fd19c31e28dca321ac51142089
     name: apig-dcoos-uportal
     type: application
     urls:
@@ -36,7 +36,7 @@ entries:
   apig-operator-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.120065486+08:00"
+    created: "2020-12-18T16:27:16.288433184+08:00"
     description: A Helm chart for Kubernetes
     digest: bb0d1feabd5748e326ac4850999a40c9c54cfba8a9f0d54b16772d7a4ed60820
     name: apig-operator-uportal
@@ -47,7 +47,7 @@ entries:
   apig-service-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.12126865+08:00"
+    created: "2020-12-18T16:27:16.28947288+08:00"
     description: A Helm chart for Kubernetes
     digest: 7011c60ed8062d6d1f2af2a40d041c9b9e2c38010a2e9ee9fb4c0f4b7aecc7ed
     name: apig-service-uportal
@@ -58,7 +58,7 @@ entries:
   cpc-cbec-product:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.122824694+08:00"
+    created: "2020-12-18T16:27:16.290993508+08:00"
     description: A Helm chart for Kubernetes
     digest: eb9311ee1f3858d6019888666019014d1beb2cb3d206c49beba24cbf848c1322
     name: cpc-cbec-product
@@ -69,7 +69,7 @@ entries:
   cpc-service-product:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.124642012+08:00"
+    created: "2020-12-18T16:27:16.292601733+08:00"
     description: A Helm chart for Kubernetes
     digest: 81007b283409bf673fdbb641476180a229771ef774c39b8e1fd2ea86847f006c
     name: cpc-service-product
@@ -80,7 +80,7 @@ entries:
   cpc-tp-product:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.126240564+08:00"
+    created: "2020-12-18T16:27:16.294169223+08:00"
     description: A Helm chart for Kubernetes
     digest: f4d836e3f0729b3e4720507cc984ee5b9d9db4b57e5673b434eb4cf2ca248f55
     name: cpc-tp-product
@@ -91,7 +91,7 @@ entries:
   cpc-web-product:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.127691455+08:00"
+    created: "2020-12-18T16:27:16.29562128+08:00"
     description: A Helm chart for Kubernetes
     digest: 4a572c4ba558daaf09b1c9223d23c80ee6e8f5db07dcc01421857611103f6c6e
     name: cpc-web-product
@@ -102,7 +102,7 @@ entries:
   custc-service-core-r92:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.130548116+08:00"
+    created: "2020-12-18T16:27:16.298794464+08:00"
     description: A Helm chart for Kubernetes
     digest: e434260551de758aeb664a9b323e3cd022609e3b1f0d374ffcfa0bc24c456508
     name: custc-service-core-r92
@@ -113,7 +113,7 @@ entries:
   global-config:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.131109074+08:00"
+    created: "2020-12-18T16:27:16.29932711+08:00"
     description: A Helm chart for Kubernetes
     digest: 45bd8e9bef0f559a8bb45623c0f70c50710351eb773df064a60bc57ee7d78906
     name: global-config
@@ -124,7 +124,7 @@ entries:
   ngportal-web-product-r92:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.135349579+08:00"
+    created: "2020-12-18T16:27:16.305617276+08:00"
     description: A Helm chart for Kubernetes
     digest: de50a0a46d601eb178b6da39cc32a396901ee6d376ca77cace4aa5483a363836
     name: ngportal-web-product-r92
@@ -135,7 +135,7 @@ entries:
   otc-service-product:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T16:27:08.140553608+08:00"
+    created: "2020-12-18T16:27:16.307053204+08:00"
     description: A Helm chart for Kubernetes
     digest: 889ea8ec6ceae16ce03604658c57a9367debc6860584a48e3160b48f9babc7f0
     name: otc-service-product
@@ -143,4 +143,4 @@ entries:
     urls:
     - https://zhaoyf23.github.io/helm-chart/otc-service-product-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-18T16:27:08.115612006+08:00"
+generated: "2020-12-18T16:27:16.283671468+08:00"
