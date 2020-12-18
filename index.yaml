@@ -3,7 +3,7 @@ entries:
   apig-all-core:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T14:59:41.108074273+08:00"
+    created: "2020-12-18T14:59:54.591439339+08:00"
     description: A Helm chart for Kubernetes
     digest: e5850716db48264206c09a2c903e462fd0f351af1edd417b12fa08fe4d64a22e
     name: apig-all-core
@@ -14,7 +14,7 @@ entries:
   apig-api-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T14:59:41.111381204+08:00"
+    created: "2020-12-18T14:59:54.592489831+08:00"
     description: A Helm chart for Kubernetes
     digest: 242829765474fc385a99862334df75c24ff396c6030f38af92e11d20e9739c19
     name: apig-api-uportal
@@ -25,7 +25,7 @@ entries:
   apig-dcoos-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T14:59:41.113815901+08:00"
+    created: "2020-12-18T14:59:54.593510178+08:00"
     description: A Helm chart for Kubernetes
     digest: 8eb24602c57b7628b8c32b87c9b0b8543381828d95c1aa2819d5ba15fcdc11c5
     name: apig-dcoos-uportal
@@ -36,7 +36,7 @@ entries:
   apig-operator-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T14:59:41.115343978+08:00"
+    created: "2020-12-18T14:59:54.594582984+08:00"
     description: A Helm chart for Kubernetes
     digest: e88232c09e0499aa3dd1275dd3314d89c8191e049b20d5520dcef416810a7358
     name: apig-operator-uportal
@@ -44,10 +44,21 @@ entries:
     urls:
     - https://zhaoyf23.github.io/helm-chart/apig-operator-uportal-0.1.0.tgz
     version: 0.1.0
+  apig-service-uportal:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-12-18T14:59:54.595648523+08:00"
+    description: A Helm chart for Kubernetes
+    digest: 634ab0aa899043278c199257ef0f1e0074f200e2b7f8a37cb3d1174e98e2e1e9
+    name: apig-service-uportal
+    type: application
+    urls:
+    - https://zhaoyf23.github.io/helm-chart/apig-service-uportal-0.1.0.tgz
+    version: 0.1.0
   global-config:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-18T14:59:41.115932072+08:00"
+    created: "2020-12-18T14:59:54.596241778+08:00"
     description: A Helm chart for Kubernetes
     digest: 6037f896c9ed75e13736f14de4fabee2890174a645ce771f795152161f2a2bcc
     name: global-config
@@ -55,4 +66,4 @@ entries:
     urls:
     - https://zhaoyf23.github.io/helm-chart/global-config-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-18T14:59:41.105914575+08:00"
+generated: "2020-12-18T14:59:54.590190941+08:00"
