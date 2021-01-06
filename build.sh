@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Define dynamic parameters for local path and remote chart repository.
 helm_path=/root/tmf/helm-chart
 chart_path=/root/helm/helm-chart
 chart_repo=https://zhaoyf23.github.io/helm-chart/
@@ -7,10 +8,10 @@ chart_repo=https://zhaoyf23.github.io/helm-chart/
 function check() {
 # Go into helm chart directory.
     cd $helm_path
-# check if $@ directory exists, return if not exists
+# check if $@ directory exists, return if not exists.
     if [ ! -d $@ ]; then
         echo "warning: "$@ not exists, continue for scanning other directory...
-        return 1;
+        exit;
     fi
 # Delete old chart
     rm -rf $@-*.tgz
@@ -48,16 +49,10 @@ function chart_commit() {
 
 for arg in $*
 do
-  check $arg
-  echo "adfsadf"$?
-  if [ $? -ne 0 ]; then
-      return;
-  else
-    echo "ffff"
-      source_commit $arg
-      chart_pack $arg
-      chart_commit $arg
-      helm repo update
-      echo "Complete!"
-  fi
+    check $arg
+    source_commit $arg
+    chart_pack $arg
+    chart_commit $arg
 done
+    helm repo update
+    echo "Complete!"
