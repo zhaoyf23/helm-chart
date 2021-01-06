@@ -17,6 +17,8 @@ function check() {
 }
 
 function source_commit() {
+# Check if specified directory exists
+    check $@
 # Go into helm chart directory.
     cd $helm_path
 # Git checkout main branch.
@@ -26,6 +28,9 @@ function source_commit() {
 }
 
 function chart_pack() {
+# Check if specified directory exists
+    check $@
+# Go into helm chart directory.
     cd $helm_path
 # Packages a chart into a versioned chart archive file.
     helm package $@
@@ -37,6 +42,8 @@ function chart_pack() {
 }
 
 function chart_commit() {
+# Check if specified directory exists
+    check $@
 # Go into helm chart archive file directory, delete old index.yaml file.
     cd $chart_path && rm -rf index.yaml
 # Read the current directory and generate an index file based on the charts found.
