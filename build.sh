@@ -5,7 +5,7 @@ chart_path=/root/helm/helm-chart
 chart_repo=https://zhaoyf23.github.io/helm-chart/
 
 function check() {
-    # Go into helm chart directory.
+# Go into helm chart directory.
     cd $helm_path
 # check if $@ directory exists, return if not exists
     if [ ! -d $@ ]; then
@@ -17,8 +17,11 @@ function check() {
 }
 
 function source_commit() {
+# Go into helm chart directory.
     cd $helm_path
+# Git checkout main branch.
     git checkout main
+# Commit current directory to main branch.
     git add --all . && git commit -m "automatic commit for $@ by build.sh at `date`" && git push
 }
 
