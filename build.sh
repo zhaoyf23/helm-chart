@@ -10,7 +10,7 @@ function check() {
 # check if $@ directory exists, return if not exists
     if [ ! -d $@ ]; then
         echo "warning: "$@ not exists, continue for scanning other directory...
-        return -1;
+        return;
     fi
 # Delete old chart
     rm -rf $@-*.tgz
