@@ -10,7 +10,7 @@ function check() {
 # check if $@ directory exists, return if not exists
     if [ ! -d $@ ]; then
         echo "warning: "$@ not exists, continue for scanning other directory...
-        return;
+        return -1;
     fi
 # Delete old chart
     rm -rf $@-*.tgz
@@ -55,6 +55,7 @@ function chart_commit() {
 for arg in $*
 do
   check $arg
+  echo "asdfasfaf"$?
   source_commit $arg
   chart_pack $arg
   chart_commit $arg
