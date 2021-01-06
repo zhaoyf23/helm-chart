@@ -45,6 +45,7 @@ function chart_commit() {
 for arg in $*
 do
   check $arg
+  echo "adfsadf"$?
   if [ $? -ne 0 ]; then
       return;
   else
