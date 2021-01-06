@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- framework节点下的配置文件供框架使用-->
+	<!-- The configuration items under this node are used by framework -->
+	<framework Desc="The configuration items under this node are used by framework">
+		<!-- 系统配置骨架文件，禁止修改 -->
+		<!-- system configuration backbone file,forbidden modified -->
+		<xml name="app_system_def" fileName="./defined/system.def" autoReload="true" override="false" />
+		<!-- 系统配置参数文件，可以修改 -->
+		<!-- system configuration parameter file ,allowable modified -->
+		<properties name="app_system_cfg" fileName="./projectized/system.properties" autoReload="true" override="true" />
+
+		<!-- 日志告警累积策略骨架文件，禁止修改 -->
+		<!-- log alert strategy backbone file,,forbidden modified -->
+		<xml name="logging_def" fileName="./defined/logging.def" autoReload="true" override="false" />
+	</framework>
+	
+	<!-- 客户接触模块配置文件 -->
+	<!-- The configuration items under this node are used by  custom contact module -->
+	<contact>
+		<xml name="contact" fileName="./projectized/contact.xml" autoReload="true" override="true" />
+	</contact>
+	<!-- 默认不加载Job Server的配置文件，需要部署Job Server时再取消注释、加载其配置文件 -->
+  <!-- Don't load the job server configuration file by default,need uncomment and load the configuration files when deploying the job server.-->
+	<!--
+    <jobserver>
+		<properties name="jobserver" fileName="./projectized/jobserver.cfg" autoReload="true" override="true"/>
+	</jobserver>
+-->
+	<!-- task:560673/869074 -->
+	<!-- 默认不加载timer的配置文件，需要部署timer时再取消注释、加载其配置文件 -->
+	<!-- Don't load the timer configuration file by default,need uncomment and load the configuration files when deploying the timer.
+	<timer>
+		<properties name="timer" fileName="./projectized/timer.properties" autoReload="true" override="true"/>
+	</timer>
+	-->
+
+	<!-- 环境变量 -->
+	<!-- envionment variables -->
+	<system />
+	
+	<!-- 进程级别配置项 -->
+	<!-- The process level configuration items -->
+	<app />
+	<!-- 版本信息不再从system.cfg和system.def中获取，而是从下列配置项的文件中获取，可根据需要配置成etc/version目录下的任意文件 -->
+	<!--
+    <versioninfo>
+		<properties name="versioninfo" fileName="./version/ZSMART_FTF.version" autoReload="true" override="true" />
+	</versioninfo>
+    -->
+</configuration>

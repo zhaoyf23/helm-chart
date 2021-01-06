@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<property name="z_app" value="${z_app}"/>
+
+	<!--Properties Setting-->
+	<property name="SQL_LEVEL" value="DEBUG"/>
+	<property name="SERVICE_LEVEL" value="DEBUG"/>
+	<property name="RPC_LEVEL" value="DEBUG"/>
+	<property name="BOOT_LEVEL" value="DEBUG"/>
+	<property name="BUF_LEVEL" value="DEBUG"/>
+	<property name="AUDIT_LEVEL" value="DEBUG"/>
+
+	<property name="SQL_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Sql.log"/>
+	<property name="SERVICE_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Service.log"/>
+	<property name="RPC_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}RPC.log"/>
+	<property name="BOOT_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Boot.log"/>
+	<property name="BUF_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Buf.log"/>
+	<property name="TRACE_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Trace.log"/>
+
+    <!--Include Setting: Don't remove-->
+    <include resource="log/logback-docker-base-${LOG_LEVEL_PROFILE:-prod}.xml" />
+
+    <property name="ROOT_LEVEL" value="DEBUG"/>
+
+    <property name="APP_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}.log"/>
+
+    <!--Custom Setting-->
+    <appender name="APP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>${CUSTOMIZED_PATTERN:-${PATTERN}}</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${APP_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>${CUSTOMIZED_FILE_SIZE:-${BASE_FILE_SIZE}}</maxFileSize>
+            <totalSizeCap>${CUSTOMIZED_TOTAL_FILE_SIZE:-${BASE_TOTAL_FILE_SIZE}}</totalSizeCap>
+            <maxHistory>${CUSTOMIZED_MAX_HISTORY:-${BASE_MAX_HISTORY}}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="com.ztesoft.zsmart.core.security.data.jackson.ObjectMapperProvider" level="info"/>
+
+    <root level="${ROOT_LEVEL}">
+       <appender-ref ref="APP_LOG" />
+       <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

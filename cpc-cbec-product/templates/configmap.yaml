@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "cpc-cbec-product.fullname" . }}
+  namespace: {{ .Values.namespace }}
+data:
+  {{- (.Files.Glob "files/*").AsConfig | nindent 2 }}

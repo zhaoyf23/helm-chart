@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <!--Properties Setting-->
+    <property name="ROOT_LEVEL" value="INFO"/>
+    <property name="APP_LEVEL" value="DEBUG" />
+	
+    <property name="APP_LOG_FILE" value="${HOME}/log/${z_app}.log"/>
+
+    <!--Include Setting: Don't remove-->
+    <include resource="log/logback-docker-base-${LOG_LEVEL_PROFILE:-test}.xml" />
+
+    <!--Custom Setting-->
+    <appender name="APP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>${CUSTOMIZED_PATTERN:-${PATTERN}}</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${APP_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>${CUSTOMIZED_FILE_SIZE:-${BASE_FILE_SIZE}}</maxFileSize>
+            <totalSizeCap>${CUSTOMIZED_TOTAL_FILE_SIZE:-${BASE_TOTAL_FILE_SIZE}}</totalSizeCap>
+            <maxHistory>${CUSTOMIZED_MAX_HISTORY:-${BASE_MAX_HISTORY}}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="${ROOT_LEVEL}">
+        <appender-ref ref="APP_LOG" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+	
+    <logger name="com.ztesoft.zsmart.bss.crm" level="${APP_LEVEL}" additivity="false">
+        <appender-ref ref="APP_LOG" />
+    </logger>	
+</configuration>

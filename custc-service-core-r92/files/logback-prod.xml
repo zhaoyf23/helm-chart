@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration  scan="true" scanPeriod="30 seconds">
+
+	<property name="ROOT_LEVEL_IN_R13" value="DEBUG"/>
+	<property name="LOGGER_LEVEL_IN_R13" value="DEBUG"/>
+	<property name="SQL_LEVEL_IN_R13" value="DEBUG"/>
+	<property name="MON_LOG_STYLE" value="%-4relative %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{15}--> %msg%n"/>
+	<property name="DUBBO_LEVEL_IN_R13" value="DEBUG"/>
+	
+	<property name="BUSI_LOG_FILE" value="/root/log/${z_app}/${z_app}.log"/>
+	<property name="SQL_LOG_FILE" value="/root/log/${z_app}/${z_app}Sql.log"/>
+	<property name="BFM_LOG_FILE" value="/root/log/${z_app}/${z_app}Bfm.log"/>
+	<property name="SERVICE_LOG_FILE" value="/root/log/${z_app}/${z_app}Service.log"/>
+	<property name="MON_LOG_FILE" value="/root/log/${z_app}/${z_app}Mon.log"/>
+	<property name="DUBBO_LOG_FILE" value="/root/log/${z_app}/${z_app}Dubbo.log"/>
+
+	<appender name="STDOUT"	class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%-4relative %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}- %msg%n</pattern> 
+		</encoder>
+	</appender>
+
+	<appender name="BUSI_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<prudent>false</prudent>
+		<append>true</append>
+		<File>${BUSI_LOG_FILE}</File> 
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${BUSI_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</FileNamePattern>
+			<MaxHistory>50</MaxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%-4relative %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}- %msg%n</pattern> 
+		</encoder>		
+	</appender>
+
+	<appender name="SQL_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<prudent>false</prudent>
+		<append>true</append>
+		<File>${SQL_LOG_FILE}</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${SQL_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</FileNamePattern>
+			<MaxHistory>50</MaxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%msg%n</pattern> 
+		</encoder>			
+	</appender>
+	
+	<appender name="DUBBO_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<prudent>false</prudent>
+		<append>true</append>
+		<File>${DUBBO_LOG_FILE}</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${DUBBO_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</FileNamePattern>
+			<MaxHistory>50</MaxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%msg%n</pattern> 
+		</encoder>			
+	</appender>
+
+	<appender name="BFM_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<prudent>false</prudent>
+		<append>true</append>
+		<File>${BFM_LOG_FILE}</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${BFM_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</FileNamePattern>
+			<MaxHistory>50</MaxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} %logger{36}- %msg%n</pattern> 
+		</encoder>		
+	</appender>
+	
+	<appender name="SERVICE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<prudent>false</prudent>
+		<append>true</append>
+		<File>${SERVICE_LOG_FILE}</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${SERVICE_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</FileNamePattern>
+			<MaxHistory>50</MaxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%msg%n</pattern> 
+		</encoder>			
+	</appender>
+	
+	<appender name="MON_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<prudent>false</prudent>
+		<append>true</append>
+		<File>${MON_LOG_FILE}</File>
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>${MON_LOG_STYLE}</pattern> 
+		</encoder>		
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${MON_LOG_FILE}.%d{yyyy-MM-dd}</FileNamePattern>
+			<MaxHistory>60</MaxHistory>
+		</rollingPolicy>
+	</appender>
+	
+	<!-- 异步输出 -->
+	<appender name="BUSI_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>512</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个 -->
+		<appender-ref ref="BUSI_LOG" />
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<!-- 异步输出 -->
+	<appender name="SQL_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>512</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个 -->
+		<appender-ref ref="SQL_LOG" />
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<!-- 异步输出 -->
+	<appender name="DUBBO_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>512</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个 -->
+		<appender-ref ref="DUBBO_LOG" />
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<!-- 异步输出 -->
+	<appender name="BFM_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>512</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个 -->
+		<appender-ref ref="BFM_LOG" />
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<!-- 异步输出 -->
+	<appender name="SERVICE_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>512</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个 -->
+		<appender-ref ref="SERVICE_LOG" />
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<!-- 异步输出 -->
+	<appender name="MON_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>512</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个 -->
+		<appender-ref ref="MON_LOG" />
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<appender name="HOUND" class="com.ztesoft.zsmart.hound.client.appender.HoundLogBackAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread] [%F:%L] %msg%n</pattern>
+        </encoder>
+    </appender>
+	
+	<logger name="com.ztesoft.zsmart.bfm" level="${LOGGER_LEVEL_IN_R13}" additivity="false">
+		<appender-ref ref="BFM_LOG_ASYNC"/>
+		<appender-ref ref="HOUND"/>
+	</logger>
+	<logger name="com.ztesoft.zsmart.bpm" level="${LOGGER_LEVEL_IN_R13}" additivity="false">
+		<appender-ref ref="BFM_LOG_ASYNC"/>
+		<appender-ref ref="HOUND"/>
+	</logger>
+	
+	<logger name="org.apache.dubbo" level="${DUBBO_LEVEL_IN_R13}" additivity="false">
+		<appender-ref ref="DUBBO_LOG_ASYNC"/>
+	</logger>
+
+	<root level="${ROOT_LEVEL_IN_R13}">
+		<!-- appender-ref ref="STDOUT" /-->
+		<appender-ref ref="BUSI_LOG_ASYNC"/>
+		<appender-ref ref="HOUND"/>
+	</root>
+	<logger name="com.ztesoft.zsmart" level="${LOGGER_LEVEL_IN_R13}" additivity="false">
+		<appender-ref ref="BUSI_LOG_ASYNC"/>
+		<appender-ref ref="HOUND"/>
+	</logger>
+	<logger name="SqlLog" level="${SQL_LEVEL_IN_R13}" additivity="false">
+		<appender-ref ref="SQL_LOG_ASYNC"/>
+	</logger>
+	<logger name="ServiceLog" level="INFO" additivity="false">
+		<appender-ref ref="SERVICE_LOG_ASYNC"/>
+	</logger>
+	<logger name="netMan" level="ERROR" additivity="false">
+	   <appender-ref ref="MON_LOG_ASYNC"/>
+	</logger>
+
+</configuration>

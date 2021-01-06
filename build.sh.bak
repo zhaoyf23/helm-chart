@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function chart_pack() {
+# Go into helm chart directory.
+    cd /root/tmf/helm
+# check if $@ directory exists, exit if not exists
+    if [ ! -d $@ ]; then
+        return;
+    fi
+# Delete old chart
+    rm -rf $@-*.tgz
+# Packages a chart into a versioned chart archive file.
+    helm package $@
+# Go into helm chart archive file directory, delete old cart archive file.
+    cd /root/helm/helm-chart && rm -rf $@-*.tgz
+# Git checkout branch of chart repository.
+    git checkout gh-pages
+    mv /root/tmf/helm/$@-*.tgz .
+}
+
+function chart_commit() {
+# Go into helm chart directory.
+    cd /root/tmf/helm
+# check if $@ directory exists, exit if not exists
+    if [ ! -d $@ ]; then
+        return;
+    fi
+# Go into helm chart archive file directory, delete old index.yaml file.
+    cd /root/helm/helm-chart && rm -rf index.yaml
+# Read the current directory and generate an index file based on the charts found.
+    helm repo index --url https://zhaoyf23.github.io/helm-chart/ --merge index.yaml .
+# Commit current directory to branch of chart repository.
+    git add --all . && git commit -m "automatic commit for $@ by build.sh at `date`" && git push
+}
+
+
+function chart_fetch() {
+# Go into helm chart directory.
+    cd /root/tmf/helm
+# check if $@ directory exists, exit if not exists
+    if [ ! -d $@ ]; then
+        return;
+    fi
+# Update gets the latest information about charts from the respective chart repositories.
+    helm repo update
+# Retrieve a package from a package repository, and download it locally.
+    helm fetch helmchart/$@
+}
+
+for arg in $*
+do
+  chart_pack $arg
+  chart_commit $arg
+  chart_fetch $arg
+done
+echo "Complete!"

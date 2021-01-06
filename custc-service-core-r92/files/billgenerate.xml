@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zsmart>
+	<billgenerate>
+			<billXmlEncoding>UTF-8</billXmlEncoding>
+			<startElement>Data</startElement>
+			<billDataElement>Data</billDataElement>
+			<billNbrElement>Data.PAYMENT.BILL_ID</billNbrElement>
+			<billTempletFileElement>Data.TEMPLET_FILE</billTempletFileElement>
+			<billDefaultTempletFile>report/PaymentReceipt_skytel.jasper</billDefaultTempletFile>
+			<BILL_RECORD_CNT></BILL_RECORD_CNT>
+			<mockupStatElement>BILL</mockupStatElement>
+			<!--定义导出文件名参数列表 序号从4开始-->
+   			<BILL_FILE_PATH_ARG_LIST>
+      			<FILE_PATH_ARG>BILL_REPORT.ACCT_ID</FILE_PATH_ARG>
+      			<FILE_PATH_ARG>BILL_REPORT.MONTH_STR</FILE_PATH_ARG> 
+      			<FILE_PATH_ARG>BILL_REPORT.EMAIL</FILE_PATH_ARG>  
+   			</BILL_FILE_PATH_ARG_LIST>
+			<billCntPerBill>1</billCntPerBill>			
+			<threadPoolCoreSize>1</threadPoolCoreSize>
+			<exportTask>txtexport,pdfexport</exportTask>
+			<!--可以是pdfexpor,rtfexport,xlsexport,psexport中的一个，或者他们组成的，用逗号分割的字符串-->
+			<pdfexport>
+				<FILE_PATH_PATTERN>bill/pdf/{0}.{3}</FILE_PATH_PATTERN>
+			</pdfexport>
+			<rtfexport>
+				<FILE_PATH_PATTERN>bill/{0}{4}{5}{6}.{3}</FILE_PATH_PATTERN>
+			</rtfexport>
+			<xlsexport>
+				<FILE_PATH_PATTERN>bill/{0}{4}{5}{6}.{3}</FILE_PATH_PATTERN>
+			</xlsexport>
+			<psexport>
+				<FILE_PATH_PATTERN>bill/ps/{0}-{1}({2}).{3}</FILE_PATH_PATTERN>
+			</psexport>
+	</billgenerate> 	
+	<reportLocale>en</reportLocale><!--报表运行时用到的locale,如pt_PT,en_US-->
+</zsmart>

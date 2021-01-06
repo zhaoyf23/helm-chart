@@ -1,0 +1,86 @@
+# Default values for cpc-service-product.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+namespace: dbeptest8
+
+image:
+  repository: 10.45.80.1/v9e/v90e_cpc_service
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: V9.0E_SERVICE_20201202163018
+
+fullnameOverride: cpc-service-product
+
+ports:
+  - containerPort: 8080
+    protocol: TCP
+    name: http
+
+envFrom:
+  - configMapRef:
+     name: global-config
+
+volumeMounts:
+  - mountPath: /tmp/zcore
+    name: volume-0
+  - mountPath: /tmp/zlogs
+    name: volume-1
+  - name: cpc-service-product
+    mountPath: /opt/ZSMART_HOME/etc
+    readOnly: True
+  - mountPath: /etc/localtime
+    name: zcmlocaltime
+  - mountPath: /etc/timezone
+    name: zcmtimezone
+
+service:
+  type: ClusterIP
+  port: 8080
+
+dnsPolicy: ClusterFirst
+restartPolicy: Always
+
+volumes:
+  - hostPath:
+      path: /tmp/zcore
+      type: ""
+    name: volume-0
+  - hostPath:
+      path: /tmp/zlogs
+      type: ""
+    name: volume-1
+  - hostPath:
+      path: /etc/localtime
+      type: ""
+    name: zcmlocaltime
+  - hostPath:
+      path: /etc/timezone
+      type: ""
+    name: zcmtimezone
+
+cm:
+  - name: cpc-service-product
+    configMap:
+      name: cpc-service-product
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /cpc-service
+  path: /cpc-service
+
+resources:
+  limits:
+    cpu: "4"
+    memory: 4Gi
+  requests:
+    cpu: 100m
+    memory: 512Mi
+
+nodeSelector:
+  dbeptest8: dbeptest8
+
+clusterIP: None

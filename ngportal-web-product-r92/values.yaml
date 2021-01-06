@@ -1,0 +1,115 @@
+# Default values for ngportal-web-product-r92.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+namespace: dbeptest8
+
+image:
+  repository: 10.45.80.1/uportal/ngportal-product-r92-test
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: D_20201202170514
+
+fullnameOverride: ngportal-web-product-r92
+
+ports:
+  - containerPort: 8080
+    protocol: TCP
+    name: http
+
+envFrom:
+  - configMapRef:
+     name: global-config
+
+volumeMounts:
+  - mountPath: /nfsdata/export_dir
+    name: volume-0
+  - mountPath: /nfsdata/upload_dir
+    name: volume-1
+  - mountPath: /tmp/zcore
+    name: volume-2
+  - mountPath: /tmp/zlogs
+    name: volume-3
+  - name: ngportal-web-product-r92
+    mountPath: /root/ZSMART_HOME/etc/mq.properties
+    subPath: mq.properties
+    readOnly: True
+  - name: ngportal-web-product-r92
+    mountPath: /root/ZSMART_HOME/etc/portalConfig.properties
+    subPath: portalConfig.properties
+    readOnly: True
+  - name: ngportal-web-product-r92
+    mountPath: /root/ZSMART_HOME/etc/coreConfig.properties
+    subPath: coreConfig.properties
+    readOnly: True
+  - name: ngportal-web-product-r92
+    mountPath: /root/ZSMART_HOME/etc/logback-test.xml
+    subPath: logback-test.xml
+    readOnly: True
+  - name: ngportal-web-product-r92
+    mountPath: /root/ZSMART_HOME/etc/logback-prod.xml
+    subPath: logback-prod.xml
+    readOnly: True
+  - mountPath: /etc/localtime
+    name: zcmlocaltime
+  - mountPath: /etc/timezone
+    name: zcmtimezone
+
+service:
+  type: ClusterIP
+  port: 8080
+
+dnsPolicy: ClusterFirst
+restartPolicy: Always
+
+volumes:
+  - hostPath:
+      path: /tmp/zcore
+      type: ""
+    name: volume-2
+  - hostPath:
+      path: /tmp/zlogs
+      type: ""
+    name: volume-3
+  - hostPath:
+      path: /etc/localtime
+      type: ""
+    name: zcmlocaltime
+  - hostPath:
+      path: /etc/timezone
+      type: ""
+    name: zcmtimezone
+
+cm:
+  - name: ngportal-web-product-r92
+    configMap:
+      name: ngportal-web-product-r92
+
+pvc:
+  - name: volume-0
+    persistentVolumeClaim:
+      claimName: scd-crmquot
+  - name: volume-1
+    persistentVolumeClaim:
+      claimName: scd-crmsfa
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /portal/portal
+  path: /portal
+
+resources:
+  limits:
+    cpu: "4"
+    memory: 4Gi
+  requests:
+    cpu: "1"
+    memory: 1Gi
+
+nodeSelector:
+  dbeptest8: dbeptest8
+
+clusterIP: None
