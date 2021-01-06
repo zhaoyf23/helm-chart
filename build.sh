@@ -5,28 +5,24 @@ chart_path=/root/helm/helm-chart
 chart_repo=https://zhaoyf23.github.io/helm-chart/
 
 function check() {
-# Go into helm chart directory.
+    # Go into helm chart directory.
     cd $helm_path
 # check if $@ directory exists, return if not exists
     if [ ! -d $@ ]; then
         echo "warning: "$@ not exists, continue for scanning other directory...
-        return 1;
+        return;
     fi
 # Delete old chart
     rm -rf $@-*.tgz
 }
 
 function source_commit() {
-# Go into helm chart directory.
     cd $helm_path
-# Git checkout main branch.
     git checkout main
-# Commit current directory to main branch.
     git add --all . && git commit -m "automatic commit for $@ by build.sh at `date`" && git push
 }
 
 function chart_pack() {
-# Go into helm chart directory.
     cd $helm_path
 # Packages a chart into a versioned chart archive file.
     helm package $@
@@ -49,13 +45,13 @@ function chart_commit() {
 for arg in $*
 do
   check $arg
-  echo "asdfasfaf"$?
   if [ $? -ne 0 ]; then
       return;
+  else
+      source_commit $arg
+      chart_pack $arg
+      chart_commit $arg
+      helm repo update
+      echo "Complete!"
   fi
-  source_commit $arg
-  chart_pack $arg
-  chart_commit $arg
 done
-helm repo update
-echo "Complete!"
