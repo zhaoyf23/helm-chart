@@ -1,64 +1,9 @@
 apiVersion: v1
 entries:
-  apig-all-core:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.278146579+08:00"
-    description: A Helm chart for Kubernetes
-    digest: dfa3af33442533ca58c58892b73f134a6abd8cb194e4b1585bfd8fdcb0f07957
-    name: apig-all-core
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/apig-all-core-0.1.0.tgz
-    version: 0.1.0
-  apig-api-uportal:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.279263367+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 3622096c3676272dd8fbcb8b9247fa6c0c60719a256d658171ea8f06f96692f4
-    name: apig-api-uportal
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/apig-api-uportal-0.1.1.tgz
-    version: 0.1.1
-  apig-dcoos-uportal:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.280374299+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 007a1a9d103cf33cb93a116bb003f26fe411cbb735d8431ef71d6916ff4b05a1
-    name: apig-dcoos-uportal
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/apig-dcoos-uportal-0.1.0.tgz
-    version: 0.1.0
-  apig-operator-uportal:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.281499144+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 70b5c47c4516ebe037e988f305a031782b5aeebace77f7dd423d3528a4a0ddf5
-    name: apig-operator-uportal
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/apig-operator-uportal-0.1.0.tgz
-    version: 0.1.0
-  apig-service-uportal:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.282522777+08:00"
-    description: A Helm chart for Kubernetes
-    digest: a9790e951ff39bb6d410081d708de80d5d35cf409c9ee9a0639fddfacc2c917f
-    name: apig-service-uportal
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/apig-service-uportal-0.1.0.tgz
-    version: 0.1.0
   cpc:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.301960271+08:00"
+    created: "2021-01-12T12:47:16.462148122+08:00"
     dependencies:
     - name: apig-all-core
       repository: https://zhaoyf23.github.io/helm-chart/
@@ -104,48 +49,4 @@ entries:
     urls:
     - https://zhaoyf23.github.io/helm-chart/cpc-0.1.0.tgz
     version: 0.1.0
-  custc-service-core-r92:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.304888039+08:00"
-    description: A Helm chart for Kubernetes
-    digest: a63bfc703932466d1e00c49fe412c1d3d3916efffb394ffad578c710b2e531b8
-    name: custc-service-core-r92
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/custc-service-core-r92-0.1.0.tgz
-    version: 0.1.0
-  global-config:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.305407925+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 1c7adf7f6e34982131d2a76a3ae2f5dbc4691aa65cae56f01039e6ab034a9309
-    name: global-config
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/global-config-0.1.0.tgz
-    version: 0.1.0
-  ngportal-web-product-r92:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.307870771+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 61c5fc5e783e64ed06c2eb2b60463c254ba82d5af6eec3c09b4604d67fb1f29b
-    name: ngportal-web-product-r92
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/ngportal-web-product-r92-0.1.0.tgz
-    version: 0.1.0
-  otc-service-product:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-01-12T12:21:26.309594067+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 12ee2a3a2a1b840d7a5252360ad8d42fb06d18d717b059ab3d7edbac7631f5c8
-    name: otc-service-product
-    type: application
-    urls:
-    - https://zhaoyf23.github.io/helm-chart/otc-service-product-0.1.0.tgz
-    version: 0.1.0
-generated: "2021-01-12T12:21:26.275164109+08:00"
+generated: "2021-01-12T12:47:16.444304913+08:00"
