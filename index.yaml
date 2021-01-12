@@ -3,7 +3,7 @@ entries:
   apig-all-core:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.182913769+08:00"
+    created: "2021-01-12T11:38:05.210397044+08:00"
     description: A Helm chart for Kubernetes
     digest: dfa3af33442533ca58c58892b73f134a6abd8cb194e4b1585bfd8fdcb0f07957
     name: apig-all-core
@@ -14,7 +14,7 @@ entries:
   apig-api-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.193600628+08:00"
+    created: "2021-01-12T11:38:05.2128438+08:00"
     description: A Helm chart for Kubernetes
     digest: 3622096c3676272dd8fbcb8b9247fa6c0c60719a256d658171ea8f06f96692f4
     name: apig-api-uportal
@@ -25,7 +25,7 @@ entries:
   apig-dcoos-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.200026484+08:00"
+    created: "2021-01-12T11:38:05.215433479+08:00"
     description: A Helm chart for Kubernetes
     digest: 007a1a9d103cf33cb93a116bb003f26fe411cbb735d8431ef71d6916ff4b05a1
     name: apig-dcoos-uportal
@@ -36,7 +36,7 @@ entries:
   apig-operator-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.207827415+08:00"
+    created: "2021-01-12T11:38:05.216564687+08:00"
     description: A Helm chart for Kubernetes
     digest: 70b5c47c4516ebe037e988f305a031782b5aeebace77f7dd423d3528a4a0ddf5
     name: apig-operator-uportal
@@ -47,7 +47,7 @@ entries:
   apig-service-uportal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.213464279+08:00"
+    created: "2021-01-12T11:38:05.21761596+08:00"
     description: A Helm chart for Kubernetes
     digest: a9790e951ff39bb6d410081d708de80d5d35cf409c9ee9a0639fddfacc2c917f
     name: apig-service-uportal
@@ -55,10 +55,59 @@ entries:
     urls:
     - https://zhaoyf23.github.io/helm-chart/apig-service-uportal-0.1.0.tgz
     version: 0.1.0
+  cpc:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-01-12T11:38:05.236602681+08:00"
+    dependencies:
+    - name: apig-all-core
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: apig-api-uportal
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: apig-dcoos-uportal
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: apig-operator-uportal
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: apig-service-uportal
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: cpc-cbec-product
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: cpc-service-product
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: cpc-tp-product
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: cpc-web-product
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: custc-service-core-r92
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: global-config
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    - name: otc-service-product
+      repository: https://zhaoyf23.github.io/helm-chart/
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 70be34023b6b4ec2390ed154449c89fc760121418c2bfce67264d8116e20ee3d
+    icon: file://../whalecloud.jpg
+    name: cpc
+    type: application
+    urls:
+    - https://zhaoyf23.github.io/helm-chart/cpc-0.1.0.tgz
+    version: 0.1.0
   custc-service-core-r92:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.231044383+08:00"
+    created: "2021-01-12T11:38:05.246807197+08:00"
     description: A Helm chart for Kubernetes
     digest: a63bfc703932466d1e00c49fe412c1d3d3916efffb394ffad578c710b2e531b8
     name: custc-service-core-r92
@@ -69,7 +118,7 @@ entries:
   global-config:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.242718423+08:00"
+    created: "2021-01-12T11:38:05.248234658+08:00"
     description: A Helm chart for Kubernetes
     digest: 1c7adf7f6e34982131d2a76a3ae2f5dbc4691aa65cae56f01039e6ab034a9309
     name: global-config
@@ -80,7 +129,7 @@ entries:
   ngportal-web-product-r92:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.269888797+08:00"
+    created: "2021-01-12T11:38:05.255603843+08:00"
     description: A Helm chart for Kubernetes
     digest: 61c5fc5e783e64ed06c2eb2b60463c254ba82d5af6eec3c09b4604d67fb1f29b
     name: ngportal-web-product-r92
@@ -91,7 +140,7 @@ entries:
   otc-service-product:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-01-12T11:33:44.28127673+08:00"
+    created: "2021-01-12T11:38:05.257637529+08:00"
     description: A Helm chart for Kubernetes
     digest: 12ee2a3a2a1b840d7a5252360ad8d42fb06d18d717b059ab3d7edbac7631f5c8
     name: otc-service-product
@@ -99,4 +148,4 @@ entries:
     urls:
     - https://zhaoyf23.github.io/helm-chart/otc-service-product-0.1.0.tgz
     version: 0.1.0
-generated: "2021-01-12T11:33:44.181397881+08:00"
+generated: "2021-01-12T11:38:05.20926527+08:00"
