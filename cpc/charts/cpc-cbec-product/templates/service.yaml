@@ -9,9 +9,8 @@ spec:
   clusterIP: {{ .Values.clusterIP }}
   type: {{ .Values.service.type }}
   ports:
-    {{- range .Values.ports }}
-      {{- range .Values.service }}
     - port: {{ .Values.service.port }}
+      {{- range .Values.ports }}
       targetPort: {{ .containerPort }}
       protocol: {{ .protocol }}
       name: {{ .name }}
