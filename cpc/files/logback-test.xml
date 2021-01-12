@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<property name="SQL_LEVEL" value="DEBUG" />
+    <property name="SERVICE_LEVEL" value="DEBUG"/>
+    <property name="RPC_LEVEL" value="DEBUG"/>
+    <property name="BOOT_LEVEL" value="DEBUG"/>
+    <property name="BUF_LEVEL" value="DEBUG"/>
+    <property name="ROOT_LEVEL" value="DEBUG" />
+    <property name="PORTAL_LEVEL" value="DEBUG" />
+
+    <property name="APP_LOG_FILE" value="${HOME}/log/${z_app}/${z_app}.log" />
+    <property name="SQL_LOG_FILE" value="${HOME}/log/${z_app}/${z_app}Sql.log"/>
+    <property name="SERVICE_LOG_FILE" value="${HOME}/log/${z_app}/${z_app}Service.log"/>
+    <property name="RPC_LOG_FILE" value="${HOME}/log/${z_app}/${z_app}RPC.log"/>
+    <property name="BOOT_LOG_FILE" value="${HOME}/log/${z_app}/${z_app}Boot.log"/>
+    <property name="BUF_LOG_FILE" value="${HOME}/log/${z_app}/${z_app}Buf.log"/>
+
+
+    <property name="MSG_LEVEL" value="INFO"/>
+    <property name="CONN_LEVEL" value="INFO"/>
+
+    <property name="BASE_MSG_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Msg.log"/>
+    <property name="BASE_CONN_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Conn.log"/>
+
+
+    <appender name="APP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${APP_LOG_FILE}</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${APP_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+            </fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="APP_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>512</queueSize>
+        <appender-ref ref="APP_LOG" />
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SQL_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${SQL_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${SQL_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="SERVICE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${SERVICE_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${SERVICE_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="BOOT_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${BOOT_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${BOOT_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="RPC_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${RPC_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${RPC_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="BUF_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${BUF_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${BUF_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="MSG_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${MSG_LOG_FILE:-${BASE_MSG_LOG_FILE}}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${MSG_LOG_FILE:-${BASE_MSG_LOG_FILE}}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="CONN_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${CONN_LOG_FILE:-${BASE_CONN_LOG_FILE}}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${CONN_LOG_FILE:-${BASE_CONN_LOG_FILE}}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="TRACE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+        <file>${TRACE_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${TRACE_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="com.iwhalecloud.zsmart.bss" level="${PORTAL_LEVEL}" additivity="false">
+        <appender-ref ref="APP_LOG" />
+        <!-- <appender-ref ref="HOUND_LOG" /> -->
+    </logger>
+    <logger name="com.ztesoft.zsmart" level="${PORTAL_LEVEL}"
+            additivity="false">
+        <appender-ref ref="APP_LOG" />
+    </logger>
+
+    <root level="${ROOT_LEVEL}">
+        <appender-ref ref="APP_LOG" />
+    </root>
+
+    <logger name="SqlLog" level="${SQL_LEVEL}" additivity="false">
+        <appender-ref ref="SQL_LOG"/>
+    </logger>
+    <logger name="com.alibaba.druid.pool.DruidDataSource" level="${SQL_LEVEL}" additivity="false">
+        <appender-ref ref="SQL_LOG"/>
+    </logger>
+
+    <logger name="ServiceLog" level="${SERVICE_LEVEL}" additivity="false">
+        <appender-ref ref="SERVICE_LOG"/>
+    </logger>
+
+    <logger name="RpcLog" level="${RPC_LEVEL}" additivity="false">
+        <appender-ref ref="RPC_LOG"/>
+    </logger>
+    <logger name="com.alibaba.dubbo" level="${RPC_LEVEL}" additivity="false">
+        <appender-ref ref="RPC_LOG"/>
+    </logger>
+
+    <logger name="BootLog" level="${BOOT_LEVEL}" additivity="false">
+        <appender-ref ref="BOOT_LOG"/>
+    </logger>
+
+    <logger name="BufLog" level="${BUF_LEVEL}" additivity="false">
+        <appender-ref ref="BUF_LOG"/>
+    </logger>
+    <logger name="MsgLog" level="${MSG_LEVEL}" additivity="false">
+        <appender-ref ref="MSG_LOG"/>
+    </logger>
+    <logger name="ConnLog" level="${CONN_LEVEL}" additivity="false">
+        <appender-ref ref="CONN_LOG"/>
+    </logger>
+    <logger name="TraceLog" level="${TRACE_LEVEL}" additivity="false">
+        <appender-ref ref="TRACE_LOG"/>
+    </logger>
+
+</configuration>

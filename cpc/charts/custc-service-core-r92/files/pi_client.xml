@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zsmart>
+    <pi>
+        <!--the source file path-->
+        <sourcePath>D:\\pi</sourcePath>
+
+        <!--the destination file path-->
+        <destinationPath>D:\\pi</destinationPath>
+
+        <!--the encoding for the pi-->
+        <encoding>utf-8</encoding>
+
+        <!--the load limit-->
+        <loadLimit>22</loadLimit>
+
+        <!--the write interval for result file. Leave it by default, if no special requrement.-->
+        <writeInterval>5000</writeInterval>
+
+        <!--the login timeout for wait for the ack. Leave it by default, if no special requrement.-->
+        <loginTimeout>5000</loginTimeout>
+
+        <!--the command timeout for wait for the ack. Leave it by default, if no special requrement.-->
+        <commandTimeout>5000</commandTimeout>
+
+        <!--the max length for frame. Leave it by default, if no special requrement.-->
+        <maxFrameLength>1024</maxFrameLength>
+
+                <!-- the max times to retry to connect to the server. -->
+        <maxRetry>10</maxRetry>
+
+        <!-- the alarm to write to the result file -->
+        <alarmError>failed to interact with the server, so terminate the batch process</alarmError>
+
+    </pi>
+</zsmart>

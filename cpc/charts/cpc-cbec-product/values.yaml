@@ -1,0 +1,105 @@
+# Default values for cpc-cbec-product.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+namespace: dbeptest8
+
+image:
+  repository: 10.45.80.1/dbepocs/pro_cbec_cbec_product
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: pro_cbec_20201203160609
+
+fullnameOverride: cpc-cbec-product
+
+ports:
+  - containerPort: 8080
+    protocol: TCP
+    name: http
+
+envFrom:
+  - configMapRef:
+     name: global-config
+
+env:
+  - name: MANAGEMENT_PORT
+    value: "8080"
+  - name: MANAGEMENT_CONTEXT_PATH
+    value: /management
+  - name: FTF_MANAGEMENT_SECURITY_ALLOW
+    value: 127.0.0.1,10.45.80.26,10.45.16.30
+  - name: MANAGEMENT_SECURITY_ENABLED
+    value: "true"
+  - name: FTF_MANAGEMENT_SECURITY_ENABLED
+    value: "true"
+  - name: APP_CONTEXT_PATH
+    value: /cbec
+
+volumeMounts:
+  - mountPath: /profile
+    name: volume-0
+  - mountPath: /tmp/zcore
+    name: volume-1
+  - mountPath: /tmp/zlogs
+    name: volume-2
+  - name: cpc-cbec-product
+    mountPath: /usr/tomcat/tomcat8.0/etc
+    readOnly: True
+  - mountPath: /etc/localtime
+    name: zcmlocaltime
+  - mountPath: /etc/timezone
+    name: zcmtimezone
+
+service:
+  type: ClusterIP
+  port: 8080
+
+dnsPolicy: ClusterFirst
+restartPolicy: Always
+
+volumes:
+  - name: volume-0
+    persistentVolumeClaim:
+      claimName: scd-balcvc
+  - hostPath:
+      path: /tmp/zcore
+      type: ""
+    name: volume-1
+  - hostPath:
+      path: /tmp/zlogs
+      type: ""
+    name: volume-2
+  - hostPath:
+      path: /etc/localtime
+      type: ""
+    name: zcmlocaltime
+  - hostPath:
+      path: /etc/timezone
+      type: ""
+    name: zcmtimezone
+
+cm:
+  - name: cpc-cbec-product
+    configMap:
+      name: cpc-cbec-product
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /portal-web/cbec
+  path: /portal-web/cbec
+
+resources:
+  limits:
+    cpu: "4"
+    memory: 4Gi
+  requests:
+    cpu: 100m
+    memory: 512Mi
+
+nodeSelector:
+  dbeptest8: dbeptest8
+
+clusterIP: None

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "cpc-cbec-product.fullname" . }}
+  labels:
+    {{- include "cpc-cbec-product.labels" . | nindent 4 }}
+  namespace: {{ .Values.namespace }}
+spec:
+  clusterIP: {{ .Values.clusterIP }}
+  type: {{ .Values.service.type }}
+  ports:
+    {{- range .Values.ports }}
+      {{- range .Values.service }}
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .containerPort }}
+      protocol: {{ .protocol }}
+      name: {{ .name }}
+      {{- end }}
+  selector:
+    {{- include "cpc-cbec-product.selectorLabels" . | nindent 4 }}

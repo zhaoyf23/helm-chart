@@ -1,0 +1,157 @@
+# Default values for custc-service-core-r92.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+namespace: dbeptest8
+
+image:
+  repository: 10.45.80.1/v9e/custc-um-r9.2-drds
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: process_prod_v90e_ocs_20201203171430
+
+fullnameOverride: custc-service-core-r92
+
+ports:
+  - containerPort: 8080
+    protocol: TCP
+    name: http
+
+envFrom:
+  - configMapRef:
+     name: global-config
+
+env:
+  - name: JAVA_OPTS
+    value: -Dlogback.configurationFile=${ZSMART_HOME}/etc/logback-${LOG_LEVEL_PROFILE:prod}.xml
+
+volumeMounts:
+  - mountPath: /nfsdata/export_dir
+    name: volume-0
+  - mountPath: /nfsdata/upload_dir
+    name: volume-1
+  - mountPath: /nfsdata/upload_tmp
+    name: volume-2
+  - mountPath: /nfsdata/crmlifecycle
+    name: volume-3
+  - mountPath: /tmp/zcore
+    name: volume-4
+  - mountPath: /tmp/zlogs
+    name: volume-5
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/billgenerate.xml
+    subPath: billgenerate.xml
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/dubbo.properties
+    subPath: dubbo.properties
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/hound.conf
+    subPath: hound.conf
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/mq.properties
+    subPath: mq.properties
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/pi_client.xml
+    subPath: pi_client.xml
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/remoting.xml
+    subPath: remoting.xml
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/system.cfg
+    subPath: system.cfg
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/timer.properties
+    subPath: timer.properties
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/logback-test.xml
+    subPath: logback-test.xml
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/logback-prod.xml
+    subPath: logback-prod.xml
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/system.properties
+    subPath: system.properties
+    readOnly: True
+  - name: custc-service-core-r92
+    mountPath: /opt/ZSMART_HOME/etc/projectized/zsmart.xml
+    subPath: zsmart.xml
+    readOnly: True
+  - mountPath: /etc/localtime
+    name: zcmlocaltime
+  - mountPath: /etc/timezone
+    name: zcmtimezone
+
+service:
+  type: ClusterIP
+  port: 8080
+
+dnsPolicy: ClusterFirst
+restartPolicy: Always
+
+volumes:
+  - hostPath:
+      path: /tmp/zcore
+      type: ""
+    name: volume-4
+  - hostPath:
+      path: /tmp/zlogs
+      type: ""
+    name: volume-5
+  - hostPath:
+      path: /etc/localtime
+      type: ""
+    name: zcmlocaltime
+  - hostPath:
+      path: /etc/timezone
+      type: ""
+    name: zcmtimezone
+
+cm:
+  - name: custc-service-core-r92
+    configMap:
+      name: custc-service-core-r92
+
+pvc:
+  - name: volume-0
+    persistentVolumeClaim:
+      claimName: scd-crmquot
+  - name: volume-1
+    persistentVolumeClaim:
+      claimName: scd-crmsfa
+  - name: volume-2
+    persistentVolumeClaim:
+      claimName: scd-crmsrc
+  - name: volume-3
+    persistentVolumeClaim:
+      claimName: scd-crmlifecycle
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /cvbs
+  path: /cvbs
+
+resources:
+  limits:
+    cpu: "4"
+    memory: 8Gi
+  requests:
+    cpu: 600m
+    memory: 1Gi
+
+nodeSelector:
+  dbeptest8: dbeptest8
+
+clusterIP: None

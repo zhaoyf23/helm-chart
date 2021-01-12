@@ -1,0 +1,91 @@
+# Default values for cpc-tp-product.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+namespace: dbeptest8
+
+image:
+  repository: 10.45.80.1/dbepocs/pro_tp_tp_product
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: pro_tp_20201201153440
+
+fullnameOverride: cpc-tp-product
+
+ports:
+  - containerPort: 8080
+    protocol: TCP
+    name: http
+
+envFrom:
+  - configMapRef:
+     name: global-config
+
+volumeMounts:
+  - mountPath: /profile/billoffer/loadDir
+    name: volume-0
+  - mountPath: /tmp/zcore
+    name: volume-1
+  - mountPath: /tmp/zlogs
+    name: volume-2
+  - name: cpc-tp-product
+    mountPath: /usr/tomcat/tomcat8.0/etc
+    readOnly: True
+  - mountPath: /etc/localtime
+    name: zcmlocaltime
+  - mountPath: /etc/timezone
+    name: zcmtimezone
+
+service:
+  type: ClusterIP
+  port: 8080
+
+dnsPolicy: ClusterFirst
+restartPolicy: Always
+
+volumes:
+  - name: volume-0
+    persistentVolumeClaim:
+      claimName: scd-tpcpc
+  - hostPath:
+      path: /tmp/zcore
+      type: ""
+    name: volume-1
+  - hostPath:
+      path: /tmp/zlogs
+      type: ""
+    name: volume-2
+  - hostPath:
+      path: /etc/localtime
+      type: ""
+    name: zcmlocaltime
+  - hostPath:
+      path: /etc/timezone
+      type: ""
+    name: zcmtimezone
+
+cm:
+  - name: cpc-tp-product
+    configMap:
+      name: cpc-tp-product
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /portal-web/tp
+  path: /tp/tp
+
+resources:
+  limits:
+    cpu: "4"
+    memory: 4Gi
+  requests:
+    cpu: 100m
+    memory: 512Mi
+
+nodeSelector:
+  dbeptest8: dbeptest8
+
+clusterIP: None
