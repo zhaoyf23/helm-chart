@@ -2,6 +2,5 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ include "custc-service-core-r92.fullname" . }}
-  namespace: {{ .Values.namespace }}
 data:
   {{- (.Files.Glob "files/*").AsConfig | nindent 2 }}

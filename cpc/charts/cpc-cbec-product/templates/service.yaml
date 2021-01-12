@@ -4,7 +4,6 @@ metadata:
   name: {{ include "cpc-cbec-product.fullname" . }}
   labels:
     {{- include "cpc-cbec-product.labels" . | nindent 4 }}
-  namespace: {{ .Values.namespace }}
 spec:
   clusterIP: {{ .Values.clusterIP }}
   type: {{ .Values.service.type }}

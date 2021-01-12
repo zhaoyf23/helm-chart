@@ -4,7 +4,6 @@ metadata:
   name: {{ include "custc-service-core-r92.fullname" . }}
   labels:
     {{- include "custc-service-core-r92.labels" . | nindent 4 }}
-  namespace: {{ .Values.namespace }}
 spec:
   clusterIP: {{ .Values.clusterIP }}
   type: {{ .Values.service.type }}

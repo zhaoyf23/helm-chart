@@ -4,8 +4,6 @@
 
 replicaCount: 1
 
-namespace: dbeptest8
-
 image:
   repository: 10.45.80.1/v9e/custc-um-r9.2-drds
   pullPolicy: IfNotPresent

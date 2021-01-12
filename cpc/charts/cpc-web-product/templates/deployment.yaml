@@ -4,7 +4,6 @@ metadata:
   name: {{ include "cpc-web-product.fullname" . }}
   labels:
     {{- include "cpc-web-product.labels" . | nindent 4 }}
-  namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

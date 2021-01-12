@@ -4,7 +4,6 @@ metadata:
   name: {{ include "ngportal-web-product-r92.fullname" . }}
   labels:
     {{- include "ngportal-web-product-r92.labels" . | nindent 4 }}
-  namespace: {{ .Values.namespace }}
 spec:
   clusterIP: {{ .Values.clusterIP }}
   type: {{ .Values.service.type }}

@@ -4,7 +4,6 @@ metadata:
   name: {{ include "otc-service-product.fullname" . }}
   labels:
     {{- include "otc-service-product.labels" . | nindent 4 }}
-  namespace: {{ .Values.namespace }}
 spec:
   clusterIP: {{ .Values.clusterIP }}
   type: {{ .Values.service.type }}

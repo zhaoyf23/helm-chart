@@ -4,7 +4,6 @@ metadata:
   name: {{ include "apig-api-uportal.fullname" . }}
   labels:
     {{- include "apig-api-uportal.labels" . | nindent 4 }}
-  namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
